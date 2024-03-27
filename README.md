@@ -64,7 +64,7 @@ https://github.com/gyunayK/Icy-Form/assets/112416257/36c29d9b-2391-44e3-a5b2-69f
 
 <p><strong>Step 2:</strong> Navigate to the frontend directory, install the dependencies, and start the frontend server:</p>
 
-<pre><code>cd IcePanel/frontend
+<pre><code>cd frontend
 pnpm install
 pnpm run dev</code></pre>
 
@@ -72,10 +72,10 @@ pnpm run dev</code></pre>
 
 <p><strong>Step 3:</strong> In a new terminal window, navigate to the backend directory, install the dependencies, and start the backend:</p>
 
-<pre><code>cd IcePanel/backend
+<pre><code>cd backend
 pnpm install
 pnpm run dev</code></pre>
 
-<p>This will start the backend part of the project.</p>
+<p>This will start the backend.</p>
 
 
