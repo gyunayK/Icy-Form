@@ -60,7 +60,7 @@ https://github.com/gyunayK/Icy-Form/assets/112416257/36c29d9b-2391-44e3-a5b2-69f
 
 <p><strong>Step 1:</strong> Clone the repository to your local machine:</p>
 
-<pre><code>git clone https://github.com/your-repository/OpenhouseAi.git</code></pre>
+<pre><code>git clone https://github.com/gyunayK/Icy-Form.git</code></pre>
 
 <p><strong>Step 2:</strong> Navigate to the frontend directory, install the dependencies, and start the frontend server:</p>
 
