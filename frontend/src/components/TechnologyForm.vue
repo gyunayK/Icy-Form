@@ -140,10 +140,7 @@ export default {
         },
 
         submitForm() {
-            if (!this.validateForm()) {
-                // Stop the form submission if validation failed
-                return;
-            }
+            if (!this.validateForm()) return
             const formData = this.generateFormData();
             this.sendFormData(formData);
         },

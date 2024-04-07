@@ -41,10 +41,7 @@ export const getTechnologyRequests = async (req, res) => {
 export const checkTechnologyNameExists = async (req, res) => {
   try {
     const { name } = req.body
-    console.log('Name:', name)
-
     const technology = await FormModel.findOne({ technologyName: name })
-    console.log('Technology:', !!technology)
     res.json({ exists: !!technology })
   } catch (error) {
     res.status(500).json({ message: error.message })
