@@ -3,7 +3,8 @@ import multer from 'multer'
 import {
   postTechnology,
   getTechnologyRequests,
-  checkTechnologyNameExists
+  getUrlTextContent,
+  scrapeUrlForMetadata
 } from '../controllers/form.controller'
 
 const router: Router = express.Router()
@@ -14,6 +15,6 @@ router
   .post(upload.fields([{ name: 'lightIcon' }, { name: 'darkIcon' }]), postTechnology)
   .get(getTechnologyRequests)
 
-router.post('/form/technology/name', checkTechnologyNameExists)
+router.post('/form/technology/', scrapeUrlForMetadata)
 
 export default router

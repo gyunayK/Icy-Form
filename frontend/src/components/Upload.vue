@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex justify-between">
-            <h1 class="text-sm leading-6 text-white">Icon</h1>
+            <h1 class="text-sm text-white">Icon</h1>
             <!-- Reset button shows only when any image is uploaded -->
             <div v-if="lightIcon || darkIcon" class="text-shark-400 space-x-1 cursor-pointer hover:text-shark-300"
                 @click="resetFile">
