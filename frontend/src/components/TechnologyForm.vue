@@ -176,7 +176,7 @@ export default {
     async handleUrlCheck() {
       this.nextStep()
       try {
-        const response = await axios.post('http://localhost:3000/api/form/technology/', {
+        const response = await axios.post(import.meta.env.VITE_API_URL+'/api/form/technology', {
           url: this.technologyUrl
         })
         const data = JSON.parse(response.data.data.answer)
