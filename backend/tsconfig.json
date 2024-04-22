@@ -8,7 +8,7 @@
     "moduleResolution": "node", 
     "types": ["node", "multer"],
     "outDir": "./dist", 
-    "rootDir": "./api",
+    "rootDir": ".",
     "esModuleInterop": true,
     "skipLibCheck": true
   },
