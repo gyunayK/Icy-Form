@@ -1,3 +1,3 @@
-import app from '../src/main.js'
+import app from '../src'
 
 export default app
