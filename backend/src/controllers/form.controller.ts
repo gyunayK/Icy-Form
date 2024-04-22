@@ -67,77 +67,77 @@ export const scrapeUrlForMetadata = async (req: Request, res: Response) => {
   }
 }
 
-export const getUrlTextContent = async (req: Request, res: Response) => {
-  try {
-    const { url } = req.params
+// export const getUrlTextContent = async (req: Request, res: Response) => {
+//   try {
+//     const { url } = req.params
 
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
-    await page.goto(url, { waitUntil: 'networkidle0' })
+//     const browser = await puppeteer.launch()
+//     const page = await browser.newPage()
+//     await page.goto(url, { waitUntil: 'networkidle0' })
 
-    let docsUrls = await page.$$eval('a[href*="docs"]', (links) => links.map((link) => link.href))
+//     let docsUrls = await page.$$eval('a[href*="docs"]', (links) => links.map((link) => link.href))
 
-    if (docsUrls.length === 0) {
-      docsUrls = await page.$$eval('a[href*="documentation"]', (links) =>
-        links.map((link) => link.href)
-      )
-    }
+//     if (docsUrls.length === 0) {
+//       docsUrls = await page.$$eval('a[href*="documentation"]', (links) =>
+//         links.map((link) => link.href)
+//       )
+//     }
 
-    let docs = 'No URL found'
-    if (docsUrls.length > 0) {
-      const parsedDocsUrl = new URL(docsUrls[0])
-      docs = `${parsedDocsUrl.protocol}//${parsedDocsUrl.hostname}`
-    }
+//     let docs = 'No URL found'
+//     if (docsUrls.length > 0) {
+//       const parsedDocsUrl = new URL(docsUrls[0])
+//       docs = `${parsedDocsUrl.protocol}//${parsedDocsUrl.hostname}`
+//     }
 
-    await browser.close()
-    res.status(200).json({ docs })
-  } catch (error) {
-    console.error('Error extracting text:', error)
-    res.status(500).json({ error })
-  }
-}
+//     await browser.close()
+//     res.status(200).json({ docs })
+//   } catch (error) {
+//     console.error('Error extracting text:', error)
+//     res.status(500).json({ error })
+//   }
+// }
 
-export const postTechnology = async (req: Request, res: Response) => {
-  try {
-    const lightIconFilename = req.files['lightIcon'][0].filename
-    const darkIconFilename = req.files['darkIcon'][0].filename
+// export const postTechnology = async (req: Request, res: Response) => {
+//   try {
+//     const lightIconFilename = req.files['lightIcon'][0].filename
+//     const darkIconFilename = req.files['darkIcon'][0].filename
 
-    const newForm = new FormModel({
-      ...req.body, // spread form fields
-      lightIcon: lightIconFilename,
-      darkIcon: darkIconFilename
-    })
+//     const newForm = new FormModel({
+//       ...req.body, // spread form fields
+//       lightIcon: lightIconFilename,
+//       darkIcon: darkIconFilename
+//     })
 
-    const savedForm = await newForm.save()
+//     const savedForm = await newForm.save()
 
-    res.status(200).json(savedForm)
-  } catch (error) {
-    console.error('Error saving form data:', error)
-    res.status(500).json({ error })
-  }
-}
+//     res.status(200).json(savedForm)
+//   } catch (error) {
+//     console.error('Error saving form data:', error)
+//     res.status(500).json({ error })
+//   }
+// }
 
-export const getTechnologyRequests = async (req: Request, res: Response) => {
-  try {
-    const requests = await FormModel.find({})
-    const requestsWithImages = requests.map((request) => ({
-      ...request.toObject(),
-      lightIconUrl: `${req.protocol}://${req.get('host')}/uploads/${request.lightIcon}`,
-      darkIconUrl: `${req.protocol}://${req.get('host')}/uploads/${request.darkIcon}`
-    }))
+// export const getTechnologyRequests = async (req: Request, res: Response) => {
+//   try {
+//     const requests = await FormModel.find({})
+//     const requestsWithImages = requests.map((request) => ({
+//       ...request.toObject(),
+//       lightIconUrl: `${req.protocol}://${req.get('host')}/uploads/${request.lightIcon}`,
+//       darkIconUrl: `${req.protocol}://${req.get('host')}/uploads/${request.darkIcon}`
+//     }))
 
-    res.json(requestsWithImages)
-  } catch (error) {
-    res.status(500).json({ error })
-  }
-}
+//     res.json(requestsWithImages)
+//   } catch (error) {
+//     res.status(500).json({ error })
+//   }
+// }
 
-export const checkTechnologyNameExists = async (req: Request, res: Response) => {
-  try {
-    const { name } = req.body
-    const technology = await FormModel.findOne({ technologyName: name })
-    res.json({ exists: !!technology })
-  } catch (error) {
-    res.status(500).json({ error })
-  }
-}
+// export const checkTechnologyNameExists = async (req: Request, res: Response) => {
+//   try {
+//     const { name } = req.body
+//     const technology = await FormModel.findOne({ technologyName: name })
+//     res.json({ exists: !!technology })
+//   } catch (error) {
+//     res.status(500).json({ error })
+//   }
+// }

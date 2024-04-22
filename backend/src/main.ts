@@ -7,6 +7,9 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+import { Request, Response } from 'express';
+
+
 import formRouter from './routes/form.router'
 import connectDB from './service/mongodb'
 
@@ -17,13 +20,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 connectDB()
 
+
 app.use(morgan('dev'))
 app.use(cors())
 app.use(methodOverride('_method'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.json({
     message: 'Hello world'
   })
