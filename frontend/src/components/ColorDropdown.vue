@@ -113,7 +113,6 @@ export default {
       immediate: true,
       handler(newVal) {
         this.selectedColor = newVal
-        //if the new value .name dosnt exist in the color list add it
         let exists = this.colorList.find((color) => color.name === newVal.name)
 
         if (!exists) {
