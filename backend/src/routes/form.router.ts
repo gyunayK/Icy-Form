@@ -8,7 +8,7 @@ import {
 } from '../controllers/form.controller'
 
 const router: Router = express.Router()
-const upload = multer({ dest: 'uploads/' })
+// const upload = multer({ dest: 'uploads/' })
 
 // router
 //   .route('/form')
