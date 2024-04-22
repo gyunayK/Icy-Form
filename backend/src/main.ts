@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url'
 import formRouter from './routes/form.router'
 import connectDB from './service/mongodb'
 
-const app: express.Express = express()
+const app = express()
 const port = 3000
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
